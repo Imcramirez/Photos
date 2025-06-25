@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Viajes por el Mundo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .gallery-img {
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    .navbar {
+      margin-bottom: 2rem;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Mis Viajes</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="text-center mb-4">Galería de Fotos de mis Viajes</h1>
+
+    <div class="row" id="gallery">
+      <!-- Las imágenes se insertarán aquí dinámicamente -->
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mis Viajes por el Mundo</p>
+  </footer>
+
+  <script>
+    const fotos = [
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+      { src: 'img1.jpg', titulo: 'La calera' },
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    fotos.forEach(foto => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4 mb-4';
+      col.innerHTML = `
+        <div class="card h-100 shadow">
+          <img src="${foto.src}" class="card-img-top gallery-img" alt="${foto.titulo}" onclick="mostrarAlerta('${foto.titulo}')">
+          <div class="card-body">
+            <h5 class="card-title text-center">${foto.titulo}</h5>
+          </div>
+        </div>
+      `;
+      gallery.appendChild(col);
+    });
+
+    function mostrarAlerta(titulo) {
+      alert(`¡Estás viendo: ${titulo}!`);
+    }
+  </script>
+
+</body>
+</html>
